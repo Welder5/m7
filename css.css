@@ -1,0 +1,393 @@
+/* css.css */
+
+/* ================= Reset & Fonts ================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=La+Luxes+Serif&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= HTML & Body ================= */
+html,
+body {
+  height: auto;
+  margin: 0;
+  overflow-y: auto;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #000000;
+  color: #fff;
+}
+
+/* ================ Header & Menu Burguer ================ */
+.header {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2rem;
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ================ Navegação Lateral ================ */
+.nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  max-width: 300px;
+  height: 100%;
+  background: #111;
+  padding-top: 4rem;
+  transition: right 0.4s ease;
+  z-index: 90;
+}
+.nav.open {
+  right: 0;
+}
+.nav ul {
+  list-style: none;
+}
+.nav li + li {
+  margin-top: 1.5rem;
+}
+.nav a {
+  color: #00BFA5;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+/* ===== HERO PERSONALIZADO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 100px;
+  z-index: 10;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%; left: 12%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  z-index: 5;
+}
+
+.hero-title {
+  width: clamp(200px, 40vw, 1000px);
+  display: block;
+}
+
+.hero-m7 {
+  width: clamp(60px, 10vw, 100px);
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+@keyframes float {
+  0%,100%   { transform: translateY(0); }
+  50%       { transform: translateY(-20px); }
+}
+
+.hero-astronaut {
+  position: absolute;
+  bottom: -5%; right: -10%;
+  width: clamp(1800px, 35vw, 450px);
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  z-index: 4;
+}
+.hero-astronaut:hover {
+  transform: translateY(-30px) rotate(-3deg) scale(1.02);
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  color: #fff;
+  animation: bounce 2s infinite;
+  z-index: 10;
+}
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
+  40%                  { transform: translateX(-50%) translateY(-8px); }
+  60%                  { transform: translateX(-50%) translateY(-4px); }
+}
+
+/* ================ Divider Cloud ======== */
+.divider-cloud {
+  overflow: hidden;
+  line-height: 0;
+}
+.divider-cloud svg {
+  display: block;
+  width: 100%;
+  height: 120px;
+}
+
+/* ================ Floating Squares ======== */
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.square {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #14c9be;
+  opacity: 0.2;
+  transform-origin: center center;
+  animation: rotate-slow 10s linear infinite;
+  transition: top 5s ease-in-out, left 5s ease-in-out;
+}
+
+/* ===== SEGUNDA PÁGINA – Agência de Marketing ===== */
+.page-two {
+  background-color: #14c9be;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6rem 2rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page-two__content {
+  text-align: center;
+  max-width: 900px;
+}
+
+.page-two__title {
+  
+  font-size: clamp(2rem, 8vw, 5rem);
+  color: #fff;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-two__subtitle {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: #fff;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.page-two__gallery {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  height: 50vh;
+}
+
+.page-two__gallery img {
+  height: 100%;
+  width: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+.page-two__gallery img:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .page-two__gallery {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .page-two__gallery img {
+    width: 48%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ===== Scroll-down arrow ===== */
+.scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+  transition: color 0.3s;
+  z-index: 2;
+}
+.scroll-down:hover {
+  color: #00BFA5;
+}
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Wave Divider */
+.wave-divider {
+  overflow: hidden;
+  line-height: 0;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+/* ===== TERCEIRA PÁGINA ===== */
+.page-three {
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 2rem 4rem; /* <— diminui padding-top de 0 para 1rem */
+  margin-top: -10rem;        /* <— “puxa” a seção pra cima por 2rem */
+}
+
+.page-three__content {
+  max-width: 800px;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.page-two__title{
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+.page-three__text {
+  
+  font-family: sans-serif;
+  font-size: 1.500rem;
+  line-height: 1.6;
+  font-family: sans-serif;
+}
+
+
+/* ===== Notebook Carousel ===== */
+.carousel-section {
+  background: #fff;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-container {
+  position: relative;
+  width: 80vw;       /* ocupa 90% da largura da viewport */
+  max-width: 1200px; /* não passa de 1400px (ajuste a gosto) */
+}
+
+/* moldura do notebook */
+.carousel-container .frame-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* “tela” sobreposta */
+.carousel-container .screen {
+  position: absolute;
+  top: 13%;
+  left: 9.5%;
+  width: 78%;
+  height: 62%;
+  overflow: hidden;
+}
+
+/* slides */
+.carousel-container .slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+.carousel-container .slide.active {
+  opacity: 1;
+}
+
+/* botões */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: .5rem;
+  cursor: pointer;
+  z-index: 10;
+}
+.carousel-nav.prev { left: 4%; }
+.carousel-nav.next { right: 4%; }
+.carousel-nav:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* responsivo */
+@media (max-width: 600px) {
+  .carousel-container {
+    width: 95vw;
+    max-width: none;
+  }
+  .carousel-nav {
+    font-size: 1.5rem;
+    padding: .3rem;
+    left: 2%; right: 2%;
+  }
+}
